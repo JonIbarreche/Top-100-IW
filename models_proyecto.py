@@ -7,6 +7,7 @@ class Cancion(models.Model):
  interprete = models.ManyToManyField(Interprete)
  fecha = models.DateField()
  estilo = models.ForeignKey(Estilo, on_delete=models.CASCADE)
+ link = models.charfield()
  
  def __str__(self):
   return self.titulo

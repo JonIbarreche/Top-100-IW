@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Artistas {% endblock title %}
+
+{% block logo %} <h1><a href="/">My<span class="logo_colour"> page </a></h1>
+
+<% block logo_text % } <h2> </h2> {% endblock %}
+
+{% block site_content %}
+
+ <h1> {{post.nombre}}</h1>
+ <b> {{post.DNI}} </b><<p></p>
+ <i> Fecha: {{post.fecha}} </i><<p></p>
+ <i> {{post.description}} </i>
+ <p style= "text-align: justify"> {{post.texto}}</p>
+
+{% endblock site_content %}

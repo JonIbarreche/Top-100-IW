@@ -1,13 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'myapp/base.html' %}
 
-{% block title %} Main Page {% endblock title %}
+{% block title %}Main page{% endblock title %}
 
-{% block logo %} <h1><a href="/">My<span class="logo_colour"> page </a></h1>
+{% block logo %} <h1><a href="/">My<span class="logo_colour">page</span></a></h1> {% endblock logo %}
 
-<% block logo_text % } <h2> </h2> {% endblock %}
+{% block logo_text %} <h2>Just a Simple Internet page.</h2> {% endblock logo_text %}
+ 
+{% block site_content %} <h1>Estilos:</h1> 
 
-{% block site_content %}
+{% for n in elementos %}
 
- <p style= "text-align: justify"> {{post.texto}}</p>
+<ul><li><a href="estilo/{{n.id}}/">{{n.nombre}} </a></li></ul>
 
-{% endblock site_content %}
+{% endfor %}
+
+{% endblock site_content%}

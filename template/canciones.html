@@ -1,17 +1,27 @@
-{% extends "base.html" %}
+{% extends 'myapp/base.html' %}
 
-{% block title %} Canciones {% endblock title %}
+{% block title %}Main page{% endblock title %}
 
-{% block logo %} <h1><a href="/">My<span class="logo_colour">page</a></h1>
+{% block logo %} <h1><a href="/">My<span class="logo_colour">page</span></a></h1> {% endblock logo %}
 
-<% block logo_text % } <h2> </h2> {% endblock %}
-
+{% block logo_text %} <h2>Just a Simple Internet page.</h2> {% endblock logo_text %}
+ 
 {% block site_content %}
 
- <h1> {{post.titulo}}</h1>
- <b> {{post.interprete}} </b><<p></p>
- <i> Fecha: {{post.fecha}} </i><<p></p>
- <i> {{post.estilo}} </i>
- <p style= "text-align: justify"> {{post.texto}}</p>
-
-{% endblock site_content %}
+        <h1>{{cancion.titulo}}</h1>
+		<p>
+		<b>Interpretes: </b>
+		
+		{% for n in interpretes %}
+		
+		 <a href="/interprete/{{n.id}}/">{{n.nombre}}.</a>
+		
+		{%endfor%}
+		</p>
+		<b>Fecha: </b> {{cancion.fecha}} <p></p>
+		
+		  <b>Estilo: </b> <a href="/estilo/{{estilo.id}}/"> {{cancion.estilo}} </a><p></p>
+		
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/{{cancion.link}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
+{% endblock site_content%}

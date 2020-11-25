@@ -1,15 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'myapp/base.html' %}
 
-{% block title %} Estilo {% endblock title %}
+{% block title %}Main page{% endblock title %}
 
-{% block logo %} <h1><a href="/">My<span class="logo_colour"> page </a></h1>
+{% block logo %} <h1><a href="/">My<span class="logo_colour">page</span></a></h1> {% endblock logo %}
 
-<% block logo_text % } <h2> </h2> {% endblock %}
-
+{% block logo_text %} <h2>Just a Simple Internet page.</h2> {% endblock logo_text %}
+ 
 {% block site_content %}
 
- <h1> {{post.titulo}}</h1>
- <b> {{post.nombre}} </b>
- <p style= "text-align: justify"> {{post.texto}}</p>
-
-{% endblock site_content %}
+        <h1>{{estilo.nombre}}</h1>
+		<p>
+		
+		{% for n in canciones %}
+		
+		{%if n.estilo.id == estilo.id%}
+		
+		<p><a href="/cancion/{{n.id}}/">{{n.titulo}} </a></p>
+		
+		{%endif%}
+		
+		{%endfor%}
+		</p>
+		
+{% endblock site_content%}	

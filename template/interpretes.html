@@ -1,17 +1,30 @@
-{% extends 'base.html' %}
+{% extends 'myapp/base.html' %}
 
-{% block title %} Artistas {% endblock title %}
+{% block title %}Main page{% endblock title %}
 
-{% block logo %} <h1><a href="/">My<span class="logo_colour"> page </a></h1>
+{% block logo %} <h1><a href="/">My<span class="logo_colour">page</span></a></h1> {% endblock logo %}
 
-<% block logo_text % } <h2> </h2> {% endblock %}
-
+{% block logo_text %} <h2>Just a Simple Internet page.</h2> {% endblock logo_text %}
+ 
 {% block site_content %}
 
- <h1> {{post.nombre}}</h1>
- <b> {{post.DNI}} </b><<p></p>
- <i> Fecha: {{post.fecha}} </i><<p></p>
- <i> {{post.description}} </i>
- <p style= "text-align: justify"> {{post.texto}}</p>
-
-{% endblock site_content %}
+        <h1>{{interprete.nombre}}</h1>
+		<p>DNI: {{interprete.DNI}}</p>
+		<i>Fecha: {{interprete.fecha}}</i> <p></p>
+		<i>Descripcion: {{interprete.descripcion}}</i> <p></p>
+		<p>
+		
+		{% for n in interpretes %}
+		
+		 {{interprete}}
+		 
+		{%if interpretes.id == interprete.id %}
+		
+		<b><a href="/cancion/{{n.id}}/">{{n.titulo}}.</a></b>
+		
+		{%endif%}
+		
+		{%endfor%}
+		</p>
+		
+{% endblock site_content%}

@@ -8,6 +8,7 @@ from myapp.models import Cancion
 def index(request):
  #posts_list = Post.objects.all()
  elementos_list = Estilo.objects.all()
+ canciones = Cancion.objects.all().order_by('popularidad')[:100]
  context = {'elementos' : elementos_list}
  return render(request, 'myapp/index.html', context)
  
